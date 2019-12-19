@@ -1,0 +1,128 @@
+header{
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 60px;
+    background-color: black;
+}
+header ul{
+    float:left;
+    line-height: 40px;
+    font-size: 5px;
+}
+header ul li{
+    float:left;
+    list-style: none;
+    padding-right: 30px;
+    color: white;
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+main{
+    clear:both;
+
+}
+.main-container{
+    width:100%;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+.left{
+    float: left;
+    background-color: white;
+    width: 67%;
+    margin-bottom: 40px;
+}
+
+.left h2{
+    border-left: 5px solid black;
+    border-bottom: 2px solid black;
+}
+
+.left form{
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #fbfbfb;
+    border: 3px #ebebeb solid;
+    border-radius: 0px;
+    width: 100%;
+}
+
+.left #input h3{
+    margin: 0 auto;
+    margin-left: 10px;
+    border-left: 5px red solid;
+    padding-left: 15px;
+    width: 100%;
+    font-size: 20px;
+}
+
+.left form div{
+    padding: 10px;
+}
+
+.left .text,textarea,.dropdown{
+    border: 1px solid #dfdfdf;
+    padding: 5px;
+    color: #999;
+    background: #fff;
+}
+
+.left .submit{
+    border: 1px solid lightgray;
+    padding: 4px 10px;
+    color: white;
+    background-color:#bfbfbf;
+    border-radius: 5px;
+    border-bottom: solid 2px gray;
+}
+.left .kiji{
+    margin: 0 auto;
+    margin-top: 10px;
+    padding-top: 20px;
+    background-color: #fbfbfb;
+    border: 3px #ebebeb solid;
+    border-radius: 0px;
+    width: 100%;
+}
+.left .kiji h3{
+    margin: 0 auto;
+    margin-top: -10px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid lightgray;
+}
+
+.left .kiji .contents{
+    padding: 30px 0px 20px 10px;
+}
+
+
+.right{
+    float: right;
+    background-color: white;
+    width: 30%;
+   
+}
+.right h2{
+    border-bottom: 1px dashed black;
+}
+.right li{
+    list-style: none;
+    font-size: 14px;
+    padding: 0px 0px 10px 0px;
+    margin-left: -20px;
+}
+
+footer{
+    clear: both;
+    width: 100%;
+    height: 60px;
+
+    background-color: black; 
+    color: white;
+    text-align: center;
+    line-height: 60px;
+}
