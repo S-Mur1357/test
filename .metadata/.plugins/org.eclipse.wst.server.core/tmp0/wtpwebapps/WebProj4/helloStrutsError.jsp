@@ -3,12 +3,13 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>HelloStrutsError</title>
-</head>
-<body>
-<h1>エラーが発生しました</h1>
-<br>
-</body>
+	<head>
+		<meta charset="utf-8">
+		<title>HelloStrutsError</title>
+	</head>
+
+	<body>
+		<h1>エラーが発生しました</h1>
+		<br>
+	</body>
 </html>
