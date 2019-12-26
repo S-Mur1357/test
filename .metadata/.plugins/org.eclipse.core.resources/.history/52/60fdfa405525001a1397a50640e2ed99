@@ -1,0 +1,8 @@
+package com.internousdev.login.dao;
+import java.sql.Connection;
+import java.PreparedStatemant;
+import java.ResultSet;
+import java.SQLException;
+public class LoginDao {
+
+}
