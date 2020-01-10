@@ -56,11 +56,6 @@
 			background-color: black;
 			clear: both;
 		}
-		#text-center
-		{
-			display: inline-block;
-			text-align: center;
-		}
 
 	</style>
 </head>
@@ -77,9 +72,9 @@
 			<s:form action = "HomeAction">
 				<s:submit value= "商品購入" />
 			</s:form>
-			<s:if test= "#session.login_user_id != null">
-					<p>ログアウトする場合は
-						<a href='<s:url action="LogoutAction" />'>こちら</a></p>
+			<s:if test = "#session.login_user_id !=null">
+				<p>ログアウトする場合は
+					<a href='<s:url action="LogoutAction" />'>こちら</a></p>
 			</s:if>
 		</div>
 	</div>
