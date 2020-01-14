@@ -11,19 +11,23 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport implements SessionAware{
 
+		//login.jspに入力された値と同じ名前のフィールドを作る
 		private String loginUserId;
 		private String loginPassword;
 		public Map<String,Object>session;
+		//インスタンスを作る
 		private LoginDAO loginDAO = new LoginDAO();
 		private LoginDTO loginDTO = new LoginDTO();
 		private BuyItemDAO buyItemDAO = new BuyItemDAO();
 
 
 		public String execute() {
+			//ERRORを初期値に設定する
 			String result = ERROR;
 			loginDTO = loginDAO.getLoginUserInfo(loginUserId,loginPassword);
 			session.put("loginUser", loginDTO);
 
+			//入力された値からユーザー情報を検索する
 			if(((LoginDTO)session.get("loginUser")).getLoginFlg()){
 
 					result = SUCCESS;
@@ -33,12 +37,14 @@ public class LoginAction extends ActionSupport implements SessionAware{
 					session.put("id", buyItemDTO.getId());
 					session.put("buyItem_name", buyItemDTO.getItemName());
 					session.put("buyItem_price", buyItemDTO.getItemPrice());
-
+					//ログイン認証が成功した場合SUCCESSを返す
 					return result;
 			}
+			//ログイン認証が失敗した場合ERRORを返す
 			return result;
 		}
-
+		//setterによってlogin.jspで入力された値がフィールドに格納される
+		//getterで次の画面に値を渡す
 		public String getLoginUserId() {
 			return loginUserId;
 		}

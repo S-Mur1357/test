@@ -2,13 +2,14 @@ package com.internousdev.ecsite.dto;
 
 public class LoginDTO {
 
+	//LoginDAOが選んだ値を格納するフィールドを宣言
 	private String loginId;
 	private String loginPassword;
 	private String userName;
 	private boolean loginFlg = false;
 
-
-
+	//getterはLoginActionで呼び出され、値を渡す
+	//setterはLoginDAOで呼び出され、このクラスのフィールドに値を格納する
 	public String getLoginId() {
 		return loginId;
 	}

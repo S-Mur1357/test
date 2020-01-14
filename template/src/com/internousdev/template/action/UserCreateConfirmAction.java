@@ -20,6 +20,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		//初期値のSUCCESSを代入する
 		String result = SUCCESS;
 
+		//未入力項目の有無を確認する
 		if(!(loginUserId.equals(""))
 				&& !(loginPassword.equals(""))
 				&& !(userName.equals(""))){
@@ -28,7 +29,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 					session.put("userName", userName);
 		}else {
 					setErrorMessage("未入力の項目があります。");
-					//if文の条件に合わない場合resultをERRORに書き換える
+					//未入力項目がある場合、resultをERRORに書き換える
 					result = ERROR;
 		}
 		return result;

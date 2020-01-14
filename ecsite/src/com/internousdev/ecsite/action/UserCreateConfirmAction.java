@@ -7,6 +7,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class UserCreateConfirmAction extends ActionSupport implements SessionAware{
 
+		//JSPから受け取る値と同じ名前のフィールド変数を定義する
 		private String loginUserId;
 		private String loginPassword;
 		private String userName;

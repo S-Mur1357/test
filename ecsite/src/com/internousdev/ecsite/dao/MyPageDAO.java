@@ -11,12 +11,14 @@ import com.internousdev.ecsite.dto.MyPageDTO;
 import com.internousdev.ecsite.util.DBConnector;
 
 public class MyPageDAO {
-
+		//データベース接続の準備
 		private DBConnector dbConnector = new DBConnector();
 		private Connection connection = dbConnector.getConnection();
 
+		//データベースから購入履歴を取得する
 		public List<MyPageDTO> getMyPageUserInfo
 			(String item_transaction_id,String user_master_id) throws SQLException{
+
 			List<MyPageDTO> myPageDTO = new ArrayList<MyPageDTO>();
 
 			String sql = "SELECT ubit.id,iit.item_name,ubit.total_price, ubit.total_count, ubit.pay,ubit.insert_date"
@@ -32,6 +34,7 @@ public class MyPageDAO {
 					preparedStatement.setString(2, user_master_id);
 
 					ResultSet resultSet = preparedStatement.executeQuery();
+						//取得した結果1件ずつをDTO に格納してDTOをArrayListに格納する
 						while(resultSet.next()) {
 							MyPageDTO dto = new MyPageDTO();
 							dto.setId(resultSet.getString("id"));
@@ -50,6 +53,7 @@ public class MyPageDAO {
 			return myPageDTO;
 		}
 
+		//購入履歴を消すメソッド
 		public int buyItemHistoryDelete(String item_transaction_id,String user_master_id) throws SQLException {
 
 			String sql = "DELETE FROM user_buy_item_transaction "
@@ -65,12 +69,8 @@ public class MyPageDAO {
 			}catch(SQLException e) {
 					e.printStackTrace();
 			}finally {
-				//テキストはtry-catchで囲っていない
-				try {
+				    //データベース接続を切る
 					connection.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
 			}
 			return result;
 		}

@@ -8,17 +8,20 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyItemAction extends ActionSupport implements SessionAware {
 
+	//buyItem.jspから受け取る値と同じ名前のフィールド変数を定義する
 	private Map<String,Object> session;
 	private int count;
 	private String pay;
 
 	public String execute() {
 
+			//初期値にSUCCESSを設定する
 			String result = SUCCESS;
 
 			session.put("count",count);
 			int intCount = Integer.parseInt(session.get("count").toString());
 			int intPrice = Integer.parseInt(session.get("buyItem_price").toString());
+			//価格と購入数を掛けた値を総額とする
 			session.put("total_price",intCount * intPrice);
 
 			String payment;

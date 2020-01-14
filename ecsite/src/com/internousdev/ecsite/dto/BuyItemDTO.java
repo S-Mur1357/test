@@ -1,12 +1,13 @@
 package com.internousdev.ecsite.dto;
 
 public class BuyItemDTO {
+
+	    //テーブルカラムに対応したフィールド変数を宣言する
 		public int id;
-
 		public String itemName;
-
 		public String itemPrice;
 
+		//フィールド変数に対応したGetter,Setterを定義する
 		public String getItemName() {
 			return itemName;
 		}

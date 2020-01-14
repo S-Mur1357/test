@@ -2,20 +2,16 @@ package com.internousdev.ecsite.dto;
 
 public class MyPageDTO {
 
+	//テーブルカラムに対応したフィールドの宣言
 	public String itemName;
-
 	public String totalPrice;
-
 	public String totalCount;
-
 	public String payment;
-
 	public String id;
-
 	public String insert_date;
 
 
-
+	//上記のフィールド変数に対応したGetterとSetterの定義
 	public String getItemName() {
 		return this.itemName;
 	}

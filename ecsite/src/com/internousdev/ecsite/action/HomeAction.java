@@ -13,16 +13,20 @@ public class HomeAction extends ActionSupport implements SessionAware{
 		public Map<String,Object> session;
 
 		public String execute() {
+			//初期値にloginを設定する
 			String result = "login";
+			//ログイン済みかどうかの判定をする
 			if(session.containsKey("login_user_id")) {
+					//BuyItemDAOのインスタンスを作り、BuyItemDTOの変数にDAOがゲットした情報を代入する
 					BuyItemDAO buyItemDAO = new BuyItemDAO();
 					BuyItemDTO buyItemDTO = buyItemDAO.getBuyItemInfo();
 					session.put("id", buyItemDTO.getId());
 					session.put("buyItem_name", buyItemDTO.getItemName());
 					session.put("buyItem_price", buyItemDTO.getItemPrice());
-
+					//ログイン状態の場合SUCCESSを返す
 					result = SUCCESS;
 			}
+			//ログインしていない場合"login"を返す
 			return result;
 		}
 

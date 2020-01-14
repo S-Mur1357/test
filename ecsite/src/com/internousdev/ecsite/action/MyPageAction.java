@@ -13,29 +13,31 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class MyPageAction extends ActionSupport implements SessionAware {
 
+	//myPage.jspで取得した値と同じ名前のフィールドを設定
 	public Map<String,Object> session;
 	private MyPageDAO myPageDAO = new MyPageDAO();
 	private List<MyPageDTO> myPageList = new ArrayList<MyPageDTO>();
 	private String deleteFlg;
 	private String message;
 
-	public String execute() throws SQLException{ if(!session.containsKey("login_user_id")) {
-
-		return ERROR;
-
+	public String execute() throws SQLException{
+		//loginされていない場合ERRORを返す
+		if(!session.containsKey("login_user_id")) {
+			return ERROR;
 		}
-
-	if(deleteFlg == null) {
-		String item_transaction_id = session.get("id").toString();
-		String user_master_id = session.get("login_user_id").toString();
-		myPageList = myPageDAO.getMyPageUserInfo(item_transaction_id, user_master_id);
-		//商品履歴を削除する場合
-		} else if (deleteFlg.equals("1")) {
-			delete();
-		}
-		String result = SUCCESS;
-		return result;
+		//履歴が削除されているか否かチェックする
+		if(deleteFlg == null) {
+			String item_transaction_id = session.get("id").toString();
+			String user_master_id = session.get("login_user_id").toString();
+			myPageList = myPageDAO.getMyPageUserInfo(item_transaction_id, user_master_id);
+			//商品履歴を削除する場合
+			} else if (deleteFlg.equals("1")) {
+				delete();
+			}
+			String result = SUCCESS;
+			return result;
 	}
+	//履歴の削除を行う
 	public void delete() throws SQLException {
 
 		String item_transaction_id = session.get("id").toString();
@@ -43,6 +45,7 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 
 		int res  = myPageDAO.buyItemHistoryDelete(item_transaction_id, user_master_id);
 
+		//１件以上削除されたかどうかで削除処理がされたか判別する
 		if(res > 0) {
 			myPageList = null;
 			setMessage( "商品情報を正しく削除しました。");
