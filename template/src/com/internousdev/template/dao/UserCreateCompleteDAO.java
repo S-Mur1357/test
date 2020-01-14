@@ -11,10 +11,10 @@ public class UserCreateCompleteDAO {
 	private DateUtil dateUtil = new DateUtil();
 
 	private String sql = "INSERT INTO login_user_transaction(login_id,login_pass,user_name,insert_date)VALUES(?,?,?,?)";
+
 	public void createUser(String loginUserId,String loginUserPassword,String userName) throws SQLException {
-
+		//データベース接続のための準備
 		DBConnector dbConnector = new DBConnector();
-
 		Connection connection = dbConnector.getConnection();
 
 		try {
@@ -30,6 +30,7 @@ public class UserCreateCompleteDAO {
 		} catch(Exception e){
 				e.printStackTrace();
 		} finally {
+				//データベース接続を切る
 				connection.close();
 		}
 	  }

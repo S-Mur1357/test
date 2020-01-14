@@ -10,6 +10,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyItemConfirmAction extends ActionSupport implements SessionAware {
 
+	//JSPから受け取る値と同じ名前のフィールド変数を定義する
 	private Map<String,Object> session;
 
 	public String execute() throws SQLException {
@@ -26,6 +27,8 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 				return result;
 	}
 
+	//setterを定義することでJSPでユーザーが入力した値がそれぞれのフィールド変数に格納される
+	//getterを定義して次の画面に値を渡す
 	public Map<String,Object> getSession(){
 		return session;
 	}

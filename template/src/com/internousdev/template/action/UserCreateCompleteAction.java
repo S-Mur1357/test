@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class UserCreateCompleteAction extends ActionSupport implements SessionAware {
 
+	//JSPから受け取る値と同じ名前のフィールド変数を定義する
 	private String loginUserId;
 	private String loginPassword;
 	private String userName;
@@ -16,6 +17,7 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 
 	public String execute() throws SQLException{
 
+		//UserCrateCompleteDAOのインスタンスを作る
 		UserCreateCompleteDAO userCreateCompleteDAO = new UserCreateCompleteDAO();
 		userCreateCompleteDAO.createUser(session.get("loginUserId").toString(),
 					session.get("loginPassword").toString(),
@@ -26,6 +28,8 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 					return result;
 	}
 
+	//setterを定義することでJSPでユーザーが入力した値がそれぞれのフィールド変数に格納される
+	//getterを定義して次の画面に値を渡す
 	public String getLoginUserId() {
 		return loginUserId;
 	}

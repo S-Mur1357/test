@@ -12,18 +12,25 @@ public class MyPageDAO {
 
 		public MyPageDTO getMyPageUserInfo(String item_transaction_id,String user_master_id) throws SQLException {
 
+			//データベース接続のための準備
 			DBConnector dbConnector = new DBConnector();
 			Connection connection = dbConnector.getConnection();
+			//MyPageDTOのインスタンスを作成
 			MyPageDTO myPageDTO = new MyPageDTO();
 
 			String sql = "SELECT iit.item_name, ubit.total_price, ubit.total_count, ubit.pay FROM user_buy_item_transaction ubit LEFT JOIN item_info_transaction iit ON ubit.item_transaction_id = iit.id WHERE ubit.item_transaction_id = ? AND ubit.user_master_id = ? ORDER BY ubit.insert_date DESC";
 
 			try {
+					//PreaparedStatementがデータベースまで運ぶ
 					PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
 					preparedStatement.setString(1, item_transaction_id);
-					preparedStatement.setString(2, user_master_id);
+				    preparedStatement.setString(2, user_master_id);
+
+				    //データベースへの問い合わせを実行する
 					ResultSet resultSet = preparedStatement.executeQuery();
 						if(resultSet.next()) {
+
 							myPageDTO.setItemName(resultSet.getString("item_name"));
 							myPageDTO.setTotalPrice(resultSet.getString("total_price"));
 							myPageDTO.setTotalCount(resultSet.getString("total_count"));
@@ -55,12 +62,7 @@ public class MyPageDAO {
 			}catch(SQLException e) {
 					e.printStackTrace();
 			}finally {
-				//テキストはtry-catchで囲っていない
-				try {
 					connection.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
 			}
 			return result;
 		}

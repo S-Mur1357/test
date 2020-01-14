@@ -11,11 +11,13 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class MyPageAction extends ActionSupport implements SessionAware {
 
+	//JSPから受け取る値と同じ名前のフィールド変数を定義する
 	private Map<String,Object> session;
 	private String deleteFlg;
 	private String result;
 
 	public String execute() throws SQLException{
+		//MyPageDAO,myPageDTO,のインスタンスを作る
 		MyPageDAO myPageDAO = new MyPageDAO();
 		MyPageDTO myPageDTO = new MyPageDTO();
 
@@ -52,6 +54,9 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 			session.put("message", "商品情報の削除に失敗しました。");
 		}
 	}
+
+	//setterを定義することでJSPでユーザーが入力した値がそれぞれのフィールド変数に格納される
+	//getterを定義して次の画面に値を渡す
 	public String getDeleteFlg() {
 		return deleteFlg;
 	}
