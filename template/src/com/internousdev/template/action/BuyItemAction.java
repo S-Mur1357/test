@@ -7,17 +7,20 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyItemAction extends ActionSupport implements SessionAware {
 
+	//buyItem.jspで入力された値と同じ名前のフィールド
 	private int stock;
 	private String pay;
 	private Map<String,Object> session;
 	public String result;
 
 	public String execute() {
+			//初期値にSUCCESSを設定
 			result = SUCCESS;
 
 			session.put("stock",stock);
 			int intStock = Integer.parseInt(session.get("stock").toString());
 			int intPrice = Integer.parseInt(session.get("buyItem_price").toString());
+			//総額をsessionで設定
 			session.put("buyItem_price",intStock * intPrice);
 			String payment;
 
