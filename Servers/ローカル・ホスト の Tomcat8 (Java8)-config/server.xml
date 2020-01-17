@@ -124,7 +124,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="template" path="/template" reloadable="false" source="org.eclipse.jst.jee.server:template"/><Context docBase="template2" path="/template2" reloadable="false" source="org.eclipse.jst.jee.server:template2"/><Context docBase="ecsite" path="/ecsite" reloadable="false" source="org.eclipse.jst.jee.server:ecsite"/></Host>
+      <Context docBase="template" path="/template" reloadable="false" source="org.eclipse.jst.jee.server:template"/><Context docBase="template2" path="/template2" reloadable="false" source="org.eclipse.jst.jee.server:template2"/><Context docBase="ecsite" path="/ecsite" reloadable="false" source="org.eclipse.jst.jee.server:ecsite"/><Context docBase="loginKadai" path="/loginKadai" reloadable="false" source="org.eclipse.jst.jee.server:loginKadai"/><Context docBase="login" path="/login" reloadable="false" source="org.eclipse.jst.jee.server:login"/><Context docBase="MultipleDisplayKadai" path="/MultipleDisplayKadai" reloadable="false" source="org.eclipse.jst.jee.server:MultipleDisplayKadai"/></Host>
     </Engine>
   </Service>
 </Server>

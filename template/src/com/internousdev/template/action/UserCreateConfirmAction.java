@@ -1,10 +1,10 @@
 package com.internousdev.template.action;
+
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
-
 
 public class UserCreateConfirmAction extends ActionSupport implements SessionAware {
 
@@ -12,7 +12,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	private String loginUserId;
 	private String loginPassword;
 	private String userName;
-	private Map<String,Object> session;
+	private Map<String, Object> session;
 	private String errorMessage;
 
 	public String execute() {
@@ -21,16 +21,16 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		String result = SUCCESS;
 
 		//未入力項目の有無を確認する
-		if(!(loginUserId.equals(""))
+		if (!(loginUserId.equals(""))
 				&& !(loginPassword.equals(""))
-				&& !(userName.equals(""))){
-					session.put("loginUserId",loginUserId);
-					session.put("loginPassword",loginPassword);
-					session.put("userName", userName);
-		}else {
-					setErrorMessage("未入力の項目があります。");
-					//未入力項目がある場合、resultをERRORに書き換える
-					result = ERROR;
+				&& !(userName.equals(""))) {
+			session.put("loginUserId", loginUserId);
+			session.put("loginPassword", loginPassword);
+			session.put("userName", userName);
+		} else {
+			setErrorMessage("未入力の項目があります。");
+			//未入力項目がある場合、resultをERRORに書き換える
+			result = ERROR;
 		}
 		return result;
 	}
@@ -40,6 +40,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	public String getLoginUserId() {
 		return loginUserId;
 	}
+
 	public void setLoginUserId(String loginUserId) {
 		this.loginUserId = loginUserId;
 	}
@@ -47,6 +48,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	public String getLoginPassword() {
 		return loginPassword;
 	}
+
 	public void setLoginPassword(String loginPassword) {
 		this.loginPassword = loginPassword;
 	}
@@ -54,22 +56,24 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	public String getUserName() {
 		return userName;
 	}
+
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
-	public Map<String,Object> getSession(){
+	public Map<String, Object> getSession() {
 		return session;
 	}
 
 	@Override
-	public void setSession(Map<String,Object>session) {
+	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
 	public String getErrorMessage() {
 		return errorMessage;
 	}
+
 	public void setErrorMessage(String errorMessage) {
 		this.errorMessage = errorMessage;
 	}
