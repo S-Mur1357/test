@@ -6,22 +6,24 @@ import java.sql.SQLException;
 
 public class DBConnector{
 
-	private static String driverName = "com.mysql.jdbc.Driver";
-	private static String url = "jdbc:mysql://localhost/logindb_muramatsu02";
-	private static String userName = "root";
-	private static String password = "mysql";
+		private static String driverName = "com.mysql.jdbc.Driver";
+		private static String url = "jdbc:mysql://localhost/logindb_muramatsu02";
+		private static String userName = "root";
+		private static String password = "mysql";
 
-	public Connection getConnection(){
+		public Connection getConnection() {
+
 			Connection con = null;
 
 			try {
 				Class.forName(driverName);
 				con = (Connection)DriverManager.getConnection(url,userName,password);
-			}catch(ClassNotFoundException e) {
+			} catch(ClassNotFoundException e) {
 				e.printStackTrace();
-			}catch(SQLException e) {
+			} catch(SQLException e) {
 				e.printStackTrace();
 			}
+
 			return con;
-	}
+		}
 }

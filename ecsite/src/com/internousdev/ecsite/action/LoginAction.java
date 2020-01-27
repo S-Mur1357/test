@@ -22,6 +22,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 
 		public String execute() {
+
 			//ERRORを初期値に設定する
 			String result = ERROR;
 			loginDTO = loginDAO.getLoginUserInfo(loginUserId,loginPassword);
@@ -29,18 +30,21 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 			//入力された値からユーザー情報を検索する
 			if(((LoginDTO)session.get("loginUser")).getLoginFlg()){
+				if((((LoginDTO) session.get("loginUser")).getAdminFlg() != null)
+						&& (((LoginDTO) session.get("loginUser")).getAdminFlg().equals("1"))) {
+						result = "admin";
+					}else {
+						result = SUCCESS;
+						BuyItemDTO buyItemDTO = buyItemDAO.getBuyItemInfo();
 
-					result = SUCCESS;
-					BuyItemDTO buyItemDTO = buyItemDAO.getBuyItemInfo();
-
-					session.put("login_user_id", loginDTO.getLoginId());
-					session.put("id", buyItemDTO.getId());
-					session.put("buyItem_name", buyItemDTO.getItemName());
-					session.put("buyItem_price", buyItemDTO.getItemPrice());
-					//ログイン認証が成功した場合SUCCESSを返す
-					return result;
+						session.put("login_user_id", loginDTO.getLoginId());
+						session.put("id", buyItemDTO.getId());
+						session.put("buyItem_name", buyItemDTO.getItemName());
+						session.put("buyItem_price", buyItemDTO.getItemPrice());
+						session.put("item_stock", buyItemDTO.getItemStock());
+					}
 			}
-			//ログイン認証が失敗した場合ERRORを返す
+			//管理者でログインした場合admin.jsp/それ以外はbuyItem.jsp/Errorの場合login.jsp
 			return result;
 		}
 		//setterによってlogin.jspで入力された値がフィールドに格納される
@@ -62,7 +66,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		public void setSession(Map<String,Object>session){
 			this.session = session;
 		}
-		/*public Map<String,Object> getSession(){
+		public Map<String,Object> getSession(){
 			return this.session;
-		}*/
+		}
 }

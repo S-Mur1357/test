@@ -3,9 +3,10 @@ package com.internousdev.ecsite.dto;
 public class BuyItemDTO {
 
 	    //テーブルカラムに対応したフィールド変数を宣言する
-		public int id;
-		public String itemName;
-		public String itemPrice;
+		private int id;
+		private String itemName;
+		private String itemPrice;
+		private int itemStock;
 
 		//フィールド変数に対応したGetter,Setterを定義する
 		public String getItemName() {
@@ -28,4 +29,13 @@ public class BuyItemDTO {
 		public void setId(int id) {
 			this.id = id;
 		}
+
+
+		public int getItemStock() {
+			return itemStock;
+		}
+		public void setItemStock(int itemStock) {
+			this.itemStock = itemStock;
+		}
+
 }

@@ -10,6 +10,7 @@ public class MultipleDisplayAction extends ActionSupport{
 		List<Person> personList = new ArrayList<>();
 
 		public String execute() {
+
 			String result = SUCCESS;
 
 			Person p1 = new Person("sato",28);
@@ -22,9 +23,11 @@ public class MultipleDisplayAction extends ActionSupport{
 
 			return result;
 		}
+
 	public List<Person> getPersonList() {
 		return personList;
 	}
+
 	public void setPersonList(List<Person> personList ) {
 		this.personList = personList;
 	}

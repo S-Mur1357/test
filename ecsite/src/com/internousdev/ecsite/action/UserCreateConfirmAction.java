@@ -3,6 +3,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.ecsite.dao.UserCreateConfirmDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class UserCreateConfirmAction extends ActionSupport implements SessionAware{
@@ -20,9 +21,15 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			if(!(loginUserId.equals(""))
 					&& !(loginPassword.equals(""))
 					&& !(userName.equals(""))){
+					UserCreateConfirmDAO dao = new UserCreateConfirmDAO();
+					if(!dao.isExistsUser(loginUserId)) {
 						session.put("loginUserId",loginUserId);
 						session.put("loginPassword",loginPassword);
 						session.put("userName", userName);
+					}else {
+						setErrorMessage("すでに登録されているログインIDです。");
+						result = ERROR;
+					}
 			}else {
 						setErrorMessage("未入力の項目があります。");
 						result = ERROR;

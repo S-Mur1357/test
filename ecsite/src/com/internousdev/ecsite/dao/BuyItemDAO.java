@@ -16,7 +16,7 @@ public class BuyItemDAO {
 
 	public BuyItemDTO getBuyItemInfo() {
 		    //item_info_transactionテーブルからid,item_name,item_priceを選ぶ
-			String sql = "SELECT id, item_name, item_price FROM item_info_transaction";
+			String sql = "SELECT id, item_name, item_price,item_stock FROM item_info_transaction";
 
 			try {
 			        //PreaparedStatementがデータベースまで運ぶ
@@ -29,11 +29,16 @@ public class BuyItemDAO {
 							buyItemDTO.setId(resultSet.getInt("id"));
 							buyItemDTO.setItemName(resultSet.getString("item_name"));
 							buyItemDTO.setItemPrice(resultSet.getString("item_price"));
+							buyItemDTO.setItemStock(resultSet.getInt("item_stock"));
 					}
 			}catch(Exception e) {
 					e.printStackTrace();
 			}
 			//ActionクラスにDTOクラスを返す
 			return buyItemDTO;
+	}
+
+	public BuyItemDTO getBuyItemDTO() {
+		return buyItemDTO;
 	}
 }

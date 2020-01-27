@@ -12,11 +12,18 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 	private Map<String,Object> session;
 	private int count;
 	private String pay;
+	private String errorMessage;
 
 	public String execute() {
-
 			//初期値にSUCCESSを設定する
 			String result = SUCCESS;
+
+			int itemStock = Integer.parseInt(session.get("item_stock").toString());
+
+			if(count > itemStock){
+				setErrorMessage("在庫が足りません。");
+				return ERROR;
+			}
 
 			session.put("count",count);
 			int intCount = Integer.parseInt(session.get("count").toString());
@@ -43,12 +50,19 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 		this.pay = pay;
 	}
 
-	@Override
-	public void setSession(Map<String,Object>session) {
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
+	public Map<String, Object> getSession() {
+		return session;
+	}
+	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
-	public Map<String, Object>getSession(){
-		return session;
-	}
 }

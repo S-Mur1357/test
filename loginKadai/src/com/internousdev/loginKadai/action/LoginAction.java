@@ -6,14 +6,13 @@ import com.internousdev.loginKadai.dao.LoginDAO;
 import com.internousdev.loginKadai.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class LoginAction extends ActionSupport{
+public class LoginAction extends ActionSupport {
 
 	private String name;
 	private String password;
 
 	public String execute() throws SQLException{
 		String ret = ERROR;
-
 		LoginDAO dao = new LoginDAO();
 		LoginDTO dto = new LoginDTO();
 
@@ -21,9 +20,9 @@ public class LoginAction extends ActionSupport{
 
 		if(name.equals(dto.getUserName())) {
 			if(password.equals(dto.getPassword())) {
-				ret = SUCCESS;
+					ret = SUCCESS;
+				}
 			}
-		}
 		return ret;
 	}
 
@@ -37,10 +36,7 @@ public class LoginAction extends ActionSupport{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 	public String getPassword() {
 		return this.password;
 	}
-
 }
-

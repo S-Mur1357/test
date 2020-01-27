@@ -7,6 +7,7 @@ public class LoginDTO {
 	private String loginPassword;
 	private String userName;
 	private boolean loginFlg = false;
+	private String adminFlg;
 
 	//getterはLoginActionで呼び出され、値を渡す
 	//setterはLoginDAOで呼び出され、このクラスのフィールドに値を格納する
@@ -36,4 +37,12 @@ public class LoginDTO {
 	public void setLoginFlg(boolean loginFlg) {
 		this.loginFlg= loginFlg;
 	}
+	public String getAdminFlg() {
+		return adminFlg;
+	}
+	public void setAdminFlg(String adminFlg) {
+		this.adminFlg = adminFlg;
+	}
+
+
 }
