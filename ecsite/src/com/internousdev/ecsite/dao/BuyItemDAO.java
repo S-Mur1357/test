@@ -37,8 +37,4 @@ public class BuyItemDAO {
 			//ActionクラスにDTOクラスを返す
 			return buyItemDTO;
 	}
-
-	public BuyItemDTO getBuyItemDTO() {
-		return buyItemDTO;
-	}
 }

@@ -9,11 +9,12 @@ import com.internousdev.ecsite.util.DateUtil;
 
 public class BuyItemCompleteDAO {
 
-		public int buyItemInfo(String item_transaction_id,String user_master_id,String total_price,String total_count,String pay)throws SQLException {
+		public int buyItemInfo(String item_transaction_id,String total_price,String total_count,String user_master_id,String pay)throws SQLException {
 
 			//データベース接続の準備
 			DBConnector dbConnector = new DBConnector();
 			Connection connection = dbConnector.getConnection();
+
 			DateUtil dateUtil = new DateUtil();
 
 			//user_buy_transactionテーブルに値を格納する

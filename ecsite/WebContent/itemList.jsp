@@ -32,6 +32,7 @@
 							<th>在庫</th>
 							<th>登録日</th>
 							<th>更新日</th>
+							<th>詳細</th>
 						</tr>
 						<s:iterator value="itemInfoDTOList">
 							<tr>
@@ -41,12 +42,14 @@
 								<td><s:property value="itemStock" /><span>個</span></td>
 								<td><s:property value="insert_date" /></td>
 								<td><s:property value="update_date" /></td>
+								<td>
+								<a href='<s:url action="ItemDetailsAction">
+									<s:param name="id" value="%{id}"/>
+									</s:url>'>詳細</a>
+								</td>
 							</tr>
 						</s:iterator>
 					</table>
-					<s:form action="ItemListDeleteConfirmAction">
-						<s:submit value="削除" />
-					</s:form>
 				</s:elseif>
 				<s:if test="message != null">
 					<h3><s:property value="message"/></h3>

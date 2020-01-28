@@ -43,6 +43,21 @@
 			<result name="error">itemCreate.jsp</result>
 		</action>
 
+		<!-- ItemDeleteConfirmAction -->
+		<action name="ItemDeleteConfirmAction" class="com.internousdev.ecsite.action.ItemDeleteConfirmAction" method="execute">
+			<result name="success">itemDeleteConfirm.jsp</result>
+		</action>
+
+		<!-- ItemDeleteCompleteAction -->
+		<action name="ItemDeleteCompleteAction" class="com.internousdev.ecsite.action.ItemDeleteCompleteAction" method="execute">
+			<result name="success">itemDeleteComplete.jsp</result>
+		</action>
+
+		<!-- ItemDetailsAction -->
+		<action name="ItemDetailsAction" method="execute" class="com.internousdev.ecsite.action.ItemDetailsAction">
+			<result name="success">itemDetails.jsp</result>
+		</action>
+
 		<!-- GoHomeAction -->
 		<action name = "GoHomeAction" class = "com.internousdev.ecsite.action.GoHomeAction" method = "execute">
 			<result name = "success">home.jsp</result>
@@ -53,6 +68,19 @@
 			<result name = "login">login.jsp</result>
 			<result name = "success">buyItem.jsp</result>
 		</action>
+
+
+
+		<!-- UserDetailsAction -->
+		<action name="UserDetailsAction" method="execute" class="com.internousdev.ecsite.action.UserDetailsAction">
+			<result name="success">userDetails.jsp</result>
+		</action>
+
+		<!-- UserDeleteCompleteAction -->
+		<action name="UserDeleteCompleteAction" method="execute" class="com.internousdev.ecsite.action.UserDeleteCompleteAction">
+			<result name="success">userDeleteComplete.jsp</result>
+		</action>
+
 
 		<!-- ItemListAction -->
 		<action name="ItemListAction" class="com.internousdev.ecsite.action.ItemListAction" method="execute">
@@ -107,6 +135,11 @@
 		<action name = "UserCreateConfirmAction" class = "com.internousdev.ecsite.action.UserCreateConfirmAction" method = "execute">
 			<result name = "success">userCreateConfirm.jsp</result>
 			<result name = "error">userCreate.jsp</result>
+		</action>
+
+		<!-- UserDeleteConfirmAction -->
+		<action name = "UserDeleteConfirmAction" class = "com.internousdev.ecsite.action.UserDeleteConfirmAction" method = "execute">
+			<result name = "success">userDeleteConfirm.jsp</result>
 		</action>
 
 		<!-- UserListAction -->

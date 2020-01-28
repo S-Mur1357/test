@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-
-pageEncoding="UTF-8"%>
-
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
@@ -22,7 +20,7 @@ pageEncoding="UTF-8"%>
 				<p>MyPage</p>
 			</div>
 			<div>
-				<s:if test="userInfoDTOList == null">
+				<s:if test="userInfoDTO == null">
 					<h3>ユーザー情報はありません。</h3>
 				</s:if>
 				<s:elseif test="message == null">
@@ -30,30 +28,32 @@ pageEncoding="UTF-8"%>
 					<table border="1">
 						<tr>
 							<th>id</th>
-							<th>ログインID</th>
-							<th>パスワード</th>
-							<th>ユーザー名</th>
-							<th>登録日</th>
-							<th>更新日</th>
+							<td><s:property value="userInfoDTO.id" /></td>
 						</tr>
-						<s:iterator value="userInfoDTOList">
-							<tr>
-								<td><s:property value="id" /></td>
-								<td><s:property value="loginId" /></td>
-								<td><s:property value="loginPass" /></td>
-								<td><s:property value="userName" /></td>
-								<td><s:property value="insert_date" /></td>
-								<td><s:property value="update_date" /></td>
-								<td>
-								<a href='<s:url action="UserDetailsAction">
-									<s:param name="loginId" value="%{loginId}"/>
-									</s:url>'>詳細</a>
-								</td>
-							</tr>
-						</s:iterator>
+						<tr>
+							<th>ログインID</th>
+							<td><s:property value="userInfoDTO.loginId" /></td>
+						</tr>
+						<tr>
+							<th>パスワード</th>
+							<td><s:property value="userInfoDTO.loginPass" /></td>
+						</tr>
+						<tr>
+							<th>ユーザー名</th>
+							<td><s:property value="userInfoDTO.userName" /></td>
+						</tr>
+						<tr>
+							<th>登録日</th>
+							<td><s:property value="userInfoDTO.insert_date" /></td>
+						</tr>
+						<tr>
+							<th>更新日</th>
+							<td><s:property value="userInfoDTO.update_date" /></td>
+						</tr>
 					</table>
-					<s:form action="UserListDeleteConfirmAction">
+					<s:form action="UserDeleteConfirmAction">
 						<s:submit value="削除" />
+						<s:hidden name="loginId" value="%{loginId}"/>
 					</s:form>
 				</s:elseif>
 				<div id="text-right">
@@ -67,3 +67,4 @@ pageEncoding="UTF-8"%>
 		</div>
 	</body>
 </html>
+tml>

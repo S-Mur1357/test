@@ -27,7 +27,7 @@ public class UserCreateCompleteDAO {
 				//4番目は値をデータベースに格納した時間
 				preparedStatement.setString(4, dateUtil.getDate());
 
-				preparedStatement.execute();
+				preparedStatement.executeUpdate();
 
 		} catch(Exception e){
 				e.printStackTrace();

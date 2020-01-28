@@ -18,6 +18,7 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 			//初期値にSUCCESSを設定する
 			String result = SUCCESS;
 
+			//セッションに入力された在庫の量を文字列から整数に変換
 			int itemStock = Integer.parseInt(session.get("item_stock").toString());
 
 			if(count > itemStock){
