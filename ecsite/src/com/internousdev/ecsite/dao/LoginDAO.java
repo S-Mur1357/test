@@ -20,7 +20,6 @@ public class LoginDAO {
 			try {
 					//PreaparedStatementがデータベースまで運ぶ
 					PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
 					preparedStatement.setString(1, loginUserId);
 					preparedStatement.setString(2, loginPassword);
 

@@ -8,7 +8,6 @@ pageEncoding="UTF-8"%>
 	<head>
 		<meta charset="utf-8">
 		<link rel= "stylesheet" type = "text/css" href= "./css/style.css">
-
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<title>削除確認画面</title>
 
@@ -21,8 +20,6 @@ pageEncoding="UTF-8"%>
 	</head>
 	<body>
 		<div id="header">
-			<div id="pr">
-			</div>
 		</div>
 		<div id="main">
 			<div id="top">
@@ -37,8 +34,6 @@ pageEncoding="UTF-8"%>
 			</div>
 		</div>
 		<div id="footer">
-			<div id="pr">
-			</div>
 		</div>
 	</body>
 </html>

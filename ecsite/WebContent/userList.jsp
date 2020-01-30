@@ -14,8 +14,6 @@ pageEncoding="UTF-8"%>
 	</head>
 	<body>
 		<div id="header">
-			<div id="pr">
-			</div>
 		</div>
 		<div id="main">
 			<div id="top">
@@ -45,9 +43,10 @@ pageEncoding="UTF-8"%>
 								<td><s:property value="insert_date" /></td>
 								<td><s:property value="update_date" /></td>
 								<td>
-								<a href='<s:url action="UserDetailsAction">
-									<s:param name="loginId" value="%{loginId}"/>
-									</s:url>'>詳細</a>
+									<a href='<s:url action="UserDetailsAction">
+										<s:param name="loginId" value="%{loginId}"/>
+										</s:url>'>詳細
+									</a>
 								</td>
 							</tr>
 						</s:iterator>
@@ -62,8 +61,6 @@ pageEncoding="UTF-8"%>
 			</div>
 		</div>
 		<div id="footer">
-			<div id="pr">
-			</div>
 		</div>
 	</body>
 </html>

@@ -15,14 +15,13 @@ public class MyPageDTO {
 	public String getItemName() {
 		return this.itemName;
 	}
-
 	public void setItemName(String itemName){
 		this.itemName = itemName;
 	}
+
 	public String getTotalPrice() {
 		return this.totalPrice;
 	}
-
 	public void setTotalPrice(String totalPrice){
 		this.totalPrice = totalPrice;
 	}
@@ -30,7 +29,6 @@ public class MyPageDTO {
 	public String getTotalCount() {
 		return this.totalCount;
 	}
-
 	public void setTotalCount(String totalCount){
 		this.totalCount = totalCount;
 	}
@@ -38,7 +36,6 @@ public class MyPageDTO {
 	public String getPayment() {
 		return this.payment;
 	}
-
 	public void setPayment(String payment){
 		this.payment = payment;
 	}
@@ -46,7 +43,6 @@ public class MyPageDTO {
 	public String getId() {
 		return id;
 	}
-
 	public void setId(String id){
 		this.id = id;
 	}
@@ -54,7 +50,6 @@ public class MyPageDTO {
 	public String getInsert_date() {
 		return insert_date;
 	}
-
 	public void setInsert_date(String insert_date){
 		this.insert_date = insert_date;
 	}

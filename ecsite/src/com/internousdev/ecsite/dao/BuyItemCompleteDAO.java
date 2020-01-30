@@ -17,11 +17,12 @@ public class BuyItemCompleteDAO {
 
 			DateUtil dateUtil = new DateUtil();
 
-			//user_buy_transactionテーブルに値を格納する
-			String sql = "INSERT INTO user_buy_item_transaction(item_transaction_id,total_price,total_count,user_master_id,pay,insert_date)VALUES(?,?,?,?,?,?)";
 
 			int result = 0;
 			try {
+					//user_buy_transactionテーブルに値を格納する
+					String sql = "INSERT INTO user_buy_item_transaction(item_transaction_id,total_price,total_count,user_master_id,pay,insert_date)VALUES(?,?,?,?,?,?)";
+
 					PreparedStatement preparedStatement = connection.prepareStatement(sql);
 					preparedStatement.setString(1, item_transaction_id);
 					preparedStatement.setString(2, total_price);

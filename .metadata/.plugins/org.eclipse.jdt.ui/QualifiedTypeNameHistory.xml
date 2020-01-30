@@ -20,12 +20,13 @@
 <fullyQualifiedTypeName name="com.mysql.jdbc.Connection"/>
 <fullyQualifiedTypeName name="com.mysql.jdbc.PreparedStatement"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
-<fullyQualifiedTypeName name="com.internousdev.loginKadai.util.DBConnector"/>
-<fullyQualifiedTypeName name="com.internousdev.loginKadai.dto.LoginDTO"/>
 <fullyQualifiedTypeName name="com.internousdev.ecsite.dto.ItemInfoDTO"/>
 <fullyQualifiedTypeName name="com.internousdev.ecsite.util.DBConnector"/>
 <fullyQualifiedTypeName name="com.opensymphony.xwork2.ActionSupport"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="org.apache.struts2.interceptor.SessionAware"/>
+<fullyQualifiedTypeName name="com.internousdev.loginKadai.util.DBConnector"/>
+<fullyQualifiedTypeName name="com.internousdev.loginKadai.dto.LoginDTO"/>
+<fullyQualifiedTypeName name="com.internousdev.loginKadai.dao.LoginDAO"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
 </qualifiedTypeNameHistroy>

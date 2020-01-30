@@ -12,11 +12,13 @@ public class ItemCreateCompleteDAO {
 	//データベース接続の準備
 	DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();
+
 	private DateUtil dateUtil = new DateUtil();
-	//item_info_transactionテーブルに値を格納する
-	String sql = "INSERT INTO item_info_transaction (item_name, item_price, item_stock,insert_date) VALUES(?, ? ,?, ?)";
+
 	public void createItem(String item_name, String item_price, String item_count)throws SQLException {
-			try {
+		//item_info_transactionテーブルに値を格納する
+		String sql = "INSERT INTO item_info_transaction (item_name, item_price, item_stock,insert_date) VALUES(?, ? ,?, ?)";
+		try {
 				PreparedStatement preparedStatement = connection.prepareStatement(sql);
 				preparedStatement.setString(1, item_name);
 				preparedStatement.setString(2, item_price);

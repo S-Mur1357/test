@@ -12,12 +12,12 @@ public class ItemDeleteCompleteDAO {
 		Connection con = db.getConnection();
 
 		public int deleteItem(String id) throws SQLException{
-				int result = 0;
 				String sql = "DELETE FROM item_info_transaction WHERE id = ?";
+				int result = 0;
 				try {
-					PreparedStatement ps = con.prepareStatement(sql);
-					ps.setString(1,id);
-					result = ps.executeUpdate();
+						PreparedStatement ps = con.prepareStatement(sql);
+						ps.setString(1,id);
+						result = ps.executeUpdate();
 				}catch(SQLException e) {
 					e.printStackTrace();
 				}finally {

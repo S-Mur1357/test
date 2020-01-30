@@ -20,8 +20,6 @@ pageEncoding="UTF-8"%>
 	</head>
 	<body>
 		<div id="header">
-			<div id="pr">ta
-			</div>
 		</div>
 		<div id="main">
 			<div id="top">
@@ -37,8 +35,6 @@ pageEncoding="UTF-8"%>
 			</div>
 		</div>
 		<div id="footer">
-			<div id="pr">
-			</div>
 		</div>
 	</body>
-</html>>
+</html>

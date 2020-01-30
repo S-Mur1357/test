@@ -12,16 +12,15 @@ public class UserListDeleteCompleteDAO {
 
 	public int deleteUserList() throws SQLException {
 		String sql = "DELETE FROM login_user_transaction WHERE admin_flg is NULL ";
-		PreparedStatement ps;
 		int result =0;
-		try {
-			ps = con.prepareStatement(sql);
-			result = ps.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			con.close();
-		}
+			try {
+				PreparedStatement ps = con.prepareStatement(sql);
+				result = ps.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				con.close();
+			}
 		return result;
 	}
 

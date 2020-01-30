@@ -12,26 +12,29 @@ public class ItemDetailsDAO {
 	private DBConnector dbConnector = new DBConnector();
 	private Connection con = dbConnector.getConnection();
 
+	ItemInfoDTO dto = new ItemInfoDTO();
+
 	public ItemInfoDTO getItemInfo (String id) throws SQLException {
-		ItemInfoDTO dto = new ItemInfoDTO();
-		String sql ="SELECT * FROM item_info_transaction WHERE id = ? ";
-		try {
-			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, id);
-			ResultSet rs = ps.executeQuery();
-			while(rs.next()) {
-				dto.setId(rs.getString("id"));
-				dto.setItemName(rs.getString("item_name"));
-				dto.setItemPrice(rs.getString("item_price"));
-				dto.setItemStock(rs.getString("item_stock"));
-				dto.setInsert_date(rs.getString("insert_date"));
-				dto.setUpdate_date(rs.getString("update_date"));
+
+			String sql ="SELECT * FROM item_info_transaction WHERE id = ? ";
+
+			try {
+					PreparedStatement ps = con.prepareStatement(sql);
+					ps.setString(1, id);
+					ResultSet rs = ps.executeQuery();
+				while(rs.next()) {
+					dto.setId(rs.getString("id"));
+					dto.setItemName(rs.getString("item_name"));
+					dto.setItemPrice(rs.getString("item_price"));
+					dto.setItemStock(rs.getString("item_stock"));
+					dto.setInsert_date(rs.getString("insert_date"));
+					dto.setUpdate_date(rs.getString("update_date"));
+				}
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				con.close();
 			}
-		} catch(Exception e) {
-			e.printStackTrace();
-		} finally {
-			con.close();
-		}
 		return dto;
 	}
 }

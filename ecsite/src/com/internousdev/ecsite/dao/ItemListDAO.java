@@ -15,12 +15,13 @@ public class ItemListDAO {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 
+		List<ItemInfoDTO> itemInfoDTOList = new ArrayList<ItemInfoDTO>();
+
 		public List<ItemInfoDTO> getItemList() throws SQLException{
-			List<ItemInfoDTO> itemInfoDTOList = new ArrayList<ItemInfoDTO>();
 			String sql = "SELECT * FROM item_info_transaction ORDER BY id";
 			try {
-				PreparedStatement ps = con.prepareStatement(sql);
-				ResultSet rs = ps.executeQuery();
+					PreparedStatement ps = con.prepareStatement(sql);
+					ResultSet rs = ps.executeQuery();
 
 				while(rs.next()) {
 					ItemInfoDTO dto = new ItemInfoDTO();

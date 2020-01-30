@@ -7,12 +7,9 @@
 <meta charset="UTF-8">
 <link rel= "stylesheet" type = "text/css" href= "./css/style.css">
 <title>UserCreate画面</title>
-
 </head>
 <body>
 	<div id= "header">
-		<div id = "pr">
-		</div>
 	</div>
 	<div id = "main">
 		<div id = "top">
@@ -58,8 +55,6 @@
 		</div>
 	</div>
 	<div id = "footer">
-		<div id = "pr">
-		</div>
 	</div>
 </body>
 </html>

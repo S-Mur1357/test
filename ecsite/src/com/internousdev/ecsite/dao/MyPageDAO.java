@@ -15,11 +15,11 @@ public class MyPageDAO {
 		private DBConnector dbConnector = new DBConnector();
 		private Connection connection = dbConnector.getConnection();
 
+		List<MyPageDTO> myPageDTO = new ArrayList<MyPageDTO>();
+
 		//データベースから購入履歴を取得する
 		public List<MyPageDTO> getMyPageUserInfo
 			(String item_transaction_id,String user_master_id) throws SQLException{
-
-			List<MyPageDTO> myPageDTO = new ArrayList<MyPageDTO>();
 
 			String sql = "SELECT ubit.id,iit.item_name,ubit.total_price, ubit.total_count, ubit.pay,ubit.insert_date"
 					+ " FROM user_buy_item_transaction ubit "

@@ -13,10 +13,9 @@ public class BuyItemDAO {
 	private Connection connection = dbConnector.getConnection();
 	//BuyItemDTOのインスタンスを作成
 	private BuyItemDTO buyItemDTO = new BuyItemDTO();
-
 	public BuyItemDTO getBuyItemInfo() {
-		    //item_info_transactionテーブルからid,item_name,item_priceを選ぶ
-			String sql = "SELECT id, item_name, item_price,item_stock FROM item_info_transaction";
+		 //item_info_transactionテーブルからid,item_name,item_priceを選ぶ
+		String sql = "SELECT id, item_name, item_price,item_stock FROM item_info_transaction";
 
 			try {
 			        //PreaparedStatementがデータベースまで運ぶ

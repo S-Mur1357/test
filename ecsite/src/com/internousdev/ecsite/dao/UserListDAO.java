@@ -13,24 +13,23 @@ import com.internousdev.ecsite.util.DBConnector;
 public class UserListDAO {
 	private DBConnector db = new DBConnector();
 	private Connection con = db.getConnection();
-
+	List<UserInfoDTO> userInfoDTOList = new ArrayList<UserInfoDTO>();
 	public List<UserInfoDTO> getUserList() throws SQLException {
-		List<UserInfoDTO> userInfoDTOList = new ArrayList<UserInfoDTO>();
 		String sql ="SELECT * FROM login_user_transaction ORDER BY id";
 		try {
+				PreparedStatement preparedStatement = con.prepareStatement(sql);
+				ResultSet rs= preparedStatement.executeQuery();
 
-			PreparedStatement preparedStatement = con.prepareStatement(sql);
-			ResultSet rs= preparedStatement.executeQuery();
-			while(rs.next()) {
-				UserInfoDTO dto = new UserInfoDTO();
-				dto.setId(rs.getString("id"));
-				dto.setLoginId(rs.getString("login_id"));
-				dto.setLoginPass(rs.getString("login_pass"));
-				dto.setUserName(rs.getString("user_name"));
-				dto.setInsert_date(rs.getString("insert_date"));
-				dto.setUpdate_date(rs.getString("updated_date"));
-				userInfoDTOList.add(dto);
-			}
+				while(rs.next()) {
+					UserInfoDTO dto = new UserInfoDTO();
+					dto.setId(rs.getString("id"));
+					dto.setLoginId(rs.getString("login_id"));
+					dto.setLoginPass(rs.getString("login_pass"));
+					dto.setUserName(rs.getString("user_name"));
+					dto.setInsert_date(rs.getString("insert_date"));
+					dto.setUpdate_date(rs.getString("updated_date"));
+					userInfoDTOList.add(dto);
+				}
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {

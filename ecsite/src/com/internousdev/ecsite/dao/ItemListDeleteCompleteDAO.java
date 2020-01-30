@@ -12,10 +12,10 @@ public class ItemListDeleteCompleteDAO {
 
 		public int deleteItemList() throws SQLException{
 			String sql = "DELETE FROM item_info_transaction";
-			PreparedStatement ps;
+
 			int result = 0;
 			try {
-				ps = con.prepareStatement(sql);
+				PreparedStatement ps = con.prepareStatement(sql);
 				result = ps.executeUpdate();
 			}catch(SQLException e) {
 				e.printStackTrace();

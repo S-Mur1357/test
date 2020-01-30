@@ -20,11 +20,8 @@
 	}
 </script>
 	</head>
-
 	<body>
 		<div id = "header">
-				<div id = "pr">
-				</div>
 		</div>
 		<div id = "main">
 			<div id ="top">
@@ -56,11 +53,11 @@
 						<td><br></td>
 					</tr>
 					<tr>
-						<td><input type = "button" value = "戻る"
-							onclick= "submitAction('HomeAction')" />
+						<td>
+							<input type = "button" value = "戻る" onclick= "submitAction('HomeAction')" />
 						</td>
-						<td><input type = "button" value = "完了"
-							onclick= "submitAction('BuyItemConfirmAction')" />
+						<td>
+							<input type = "button" value = "完了" onclick= "submitAction('BuyItemConfirmAction')" />
 						</td>
 					</tr>
 			</s:form>
@@ -71,8 +68,6 @@
 			</div>
 		</div>
 		<div id="footer">
-				<div id = "pr">
-				</div>
 		</div>
 	</body>
 </html>

@@ -54,7 +54,6 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 	public String getErrorMessage() {
 		return errorMessage;
 	}
-
 	public void setErrorMessage(String errorMessage) {
 		this.errorMessage = errorMessage;
 	}
