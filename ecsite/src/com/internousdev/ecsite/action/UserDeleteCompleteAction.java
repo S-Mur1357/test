@@ -10,7 +10,7 @@ public class UserDeleteCompleteAction extends ActionSupport {
 		private String message;
 
 		public String execute() throws SQLException{
-			String result = ERROR;
+			String result = SUCCESS;
 			UserListDeleteCompleteDAO dao = new UserListDeleteCompleteDAO();
 			int res = dao.deleteUserList();
 			if(res > 0) {
@@ -18,7 +18,6 @@ public class UserDeleteCompleteAction extends ActionSupport {
 			}else {
 				setMessage("ユーザー情報の削除に失敗しました。");
 			}
-			result = SUCCESS;
 			return result;
 		}
 

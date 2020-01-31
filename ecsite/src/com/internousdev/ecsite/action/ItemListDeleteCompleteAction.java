@@ -8,7 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ItemListDeleteCompleteAction extends ActionSupport {
 	private String message;
 	public String execute() throws SQLException {
-		String result = ERROR;
+		String result = SUCCESS;
 		ItemListDeleteCompleteDAO itemListDeleteCompleteDAO = new ItemListDeleteCompleteDAO();
 		int res = itemListDeleteCompleteDAO.deleteItemList();
 		if (res > 0) {
@@ -16,7 +16,6 @@ public class ItemListDeleteCompleteAction extends ActionSupport {
 		} else {
 			setMessage("商品情報の削除に失敗しました。");
 		}
-		result = SUCCESS;
 		return result;
 	}
 	public String getMessage() {

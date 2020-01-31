@@ -10,7 +10,7 @@ import com.opensymphony.xwork2.ActionSupport;
 			String message;
 
 			public String execute() throws SQLException {
-				String result = ERROR;
+				String result = SUCCESS;
 				ItemDeleteCompleteDAO itemDeleteCompleteDAO = new ItemDeleteCompleteDAO();
 
 				int res = itemDeleteCompleteDAO.deleteItem(id);
@@ -20,7 +20,6 @@ import com.opensymphony.xwork2.ActionSupport;
 				} else {
 					setMessage("商品情報の削除に失敗しました。");
 				}
-				result = SUCCESS;
 				return result;
 			}
 

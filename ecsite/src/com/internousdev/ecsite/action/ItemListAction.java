@@ -15,12 +15,12 @@ public class ItemListAction extends ActionSupport implements SessionAware {
 	private List<ItemInfoDTO> itemInfoDTOList = new ArrayList<ItemInfoDTO>();
 	private Map<String, Object> session;
 	public String execute() throws SQLException {
+			String result = SUCCESS;
 			ItemListDAO itemListDAO = new ItemListDAO();
 			itemInfoDTOList = itemListDAO.getItemList();
 			if(!(itemInfoDTOList.size() > 0)) {
 				itemInfoDTOList = null;
 			}
-			String result = SUCCESS;
 		return result;
 	}
 

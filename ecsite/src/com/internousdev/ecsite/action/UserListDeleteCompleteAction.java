@@ -8,7 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class UserListDeleteCompleteAction extends ActionSupport {
 	private String info;
 	public String execute() throws SQLException {
-		String result = ERROR;
+		String result = SUCCESS;
 		UserListDeleteCompleteDAO dao = new UserListDeleteCompleteDAO();
 		int res = dao.deleteUserList();
 		if (res > 0) {
@@ -16,7 +16,6 @@ public class UserListDeleteCompleteAction extends ActionSupport {
 		} else {
 			setInfo("削除に失敗しました。");
 		}
-		result = SUCCESS;
 		return result;
 	}
 

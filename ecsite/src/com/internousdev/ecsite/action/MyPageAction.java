@@ -21,6 +21,7 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 	private String message;
 
 	public String execute() throws SQLException{
+		String result = SUCCESS;
 		//loginされていない場合ERRORを返す
 		if(!session.containsKey("login_user_id")) {
 			return ERROR;
@@ -34,7 +35,6 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 			} else if (deleteFlg.equals("1")) {
 				delete();
 			}
-			String result = SUCCESS;
 			return result;
 	}
 	//履歴の削除を行う

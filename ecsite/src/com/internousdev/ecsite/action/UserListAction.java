@@ -15,13 +15,12 @@ public class UserListAction extends ActionSupport implements SessionAware {
 		private Map<String,Object> session;
 
 		public String execute() throws SQLException{
+			String result = SUCCESS;
 			UserListDAO dao = new UserListDAO();
 			userList = dao.getUserList();
 			if(!(userList.size() > 0)) {
 				userList = null;
 			}
-
-			String result = SUCCESS;
 			return result;
 		}
 

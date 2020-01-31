@@ -15,13 +15,12 @@ public class UserDetailsAction extends ActionSupport implements SessionAware {
 	private Map<String, Object> session;
 
 	public String execute() throws SQLException {
+		String result = SUCCESS;
 		UserDetailsDAO userDetailsDAO = new UserDetailsDAO();
 		userInfoDTO = userDetailsDAO.getUserInfo(loginId);
 		if(userInfoDTO.getLoginId() == null) {
 			userInfoDTO = null;
 		}
-
-		String result = SUCCESS;
 		return result;
 	}
 
